@@ -45,9 +45,8 @@ function register($name, $email, $pass)
     fputs($file, $line);
     fclose($file);
     return true;
-
-
 } 
+
 function login($name, $pass)
 {
     //echo "<h3  class='text-danger'> DJJJJJN! </h3>"; 
@@ -88,18 +87,9 @@ function login($name, $pass)
             header('Location: index.php?page=2');
             return true;     
         }
-        if($readname===$name&& $readpass!=md5($pass))
-        {
-
-        }
-
+    
     }
-
-
     return false;
 } 
-
-
-
 
 ?>
