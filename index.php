@@ -15,7 +15,7 @@
         include_once("pages/functionsfordb.php") 
         ?>
             <header class="col-sm-12 col-md-12 col lg-12">
-                <?
+                <?php
                     session_start();
                     if(empty($_SESSION["name"]) && empty($_SESSION["error"])) //  добавить проверку есть ли в локал сторадже имя такое
                     {      
@@ -39,7 +39,7 @@
                         <br/> <br/>
                     </form>
                 
-                <?
+                <?php
                         }     
                         else
                         {
@@ -88,7 +88,7 @@
         </div>
         <div class="row">
             <section class="col-sm-12 col-md-12 col lg-12">
-                <?
+                <?php
                     if(isset($_GET["page"]))
                     {
                         $page=$_GET["page"];
@@ -101,14 +101,16 @@
                 ?>
             </section>
         </div>
-        <?
+        <?php
         if(!isset($_POST["exitbtn"])) 
         {
         ?>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button type="submit" class="btn btn-secondary" name="exitbtn">Log out</button>
-        </div>
-        <?
+        <form action="" method="post">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="submit" class="btn btn-secondary" name="exitbtn">Log out</button>
+            </div>
+        </form>
+        <?php
         }
         else
         {

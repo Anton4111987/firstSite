@@ -6,7 +6,7 @@ if(!empty($_SESSION["error"])) //  добавить проверку есть л
 }
 ?>
 <!-- если кнопка регистрации еще не нажималась, то выводим форму регистрации -->
-<?
+<?php
 if (!isset($_POST["regbtn"]) && !isset($_POST["regbtnfordb"])) 
 {
     ?>
@@ -33,7 +33,7 @@ if (!isset($_POST["regbtn"]) && !isset($_POST["regbtnfordb"]))
 
         </form>
     
-    <?
+    <?php
 } 
 else
 {
@@ -51,12 +51,10 @@ else
         createdb();        
         if(registerindb($_POST["login"], $_POST["password1"], $_POST["email"]))
         {
-            echo "<h3 class='text-success'>Новый пользователь" . $_POST["login"]  .
-            "успешно добавлен в базу данных ! Теперь вы можете успешно добавлять картинки
+            echo "<h3 class='text-success'>Новый пользователь {" . $_POST["login"]  .
+            "} успешно добавлен в базу данных! Теперь вы можете успешно добавлять картинки
             в галерею</h3>";
-            //unset($_SESSION["error"]);
-            //loginindb($_POST["login"], $_POST["password1"]);
-            $_SESSION["name"] = $_POST["login"];
+            loginindb($_POST["login"], $_POST["password1"]);
             //header('Location: index.php?page=2');
         }
     }

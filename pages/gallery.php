@@ -33,7 +33,7 @@
     <input type="submit" value="Показать картинки" class="btn btn-outline-primary mt-2" name="submit">
 </form>
 
-<?
+<?php
 
 if (isset($_POST["submit"])) {
     $ext = $_POST["extensions"];

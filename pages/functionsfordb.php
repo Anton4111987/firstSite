@@ -1,10 +1,11 @@
-<?
+<?php
 function connect(
     $host = "localhost",
     $user = "root",
     $pass = "laant312",
     $dbname = "firstsite"
 ) {
+
     $link = new mysqli($host, $user, $pass, $dbname);
     if ($link->connect_error) {
         die("Ошибка: " . $link->connect_error);
@@ -52,6 +53,8 @@ function loginindb($name, $pass) // авторизация вчерез бд
 function createdb()
 {
     $link = connect();
+    
+    $link->query("CREATE DATABASE IF NOT EXISTS firstsite;");
     $resultusers = $link->query("SHOW TABLES LIKE 'users'");
     $resultimages = $link->query("SHOW TABLES LIKE 'images'");
     if ($resultusers && $resultimages) 
